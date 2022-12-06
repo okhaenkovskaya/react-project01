@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Logo from "../Logo";
-import {headerData} from '../../services/HeaderData';
+import {headerData} from '../../data/HeaderData';
 import {NavItem, NavList} from "../Nav";
 
 const HeaderContainer = styled.header`

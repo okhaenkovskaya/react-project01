@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import FullWidthImage from '../../components/FullWidthImage';
 import FeaturedPost from "../../components/FeaturedPost";
-import {fullImageData, potsData} from '../../services/HomeData';
+import {fullImageData, potsData} from '../../data/HomeData';
 import PostsList from "../../components/PostsList";
 import FilterBar from "../../components/FilterBar";
 

@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import {potsData} from '../../services/HomeData';
+import {potsData} from '../../data/HomeData';
 import styled from "styled-components";
 import FullWidthImage from "../../components/FullWidthImage";
 

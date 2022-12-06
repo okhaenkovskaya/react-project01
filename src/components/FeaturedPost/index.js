@@ -1,8 +1,8 @@
 import { ReactComponent as IconArrow } from '../../assets/icons/arrow.svg';
 import styled from "styled-components";
-import Button from "../../features/Button";
-import View from "../../features/View";
-import Comments from "../../features/Comments";
+import Button from "../Link";
+import View from "../View";
+import Comments from "../Comments";
 
 const Container = styled.div`
   font-size: 16px;

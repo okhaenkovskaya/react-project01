@@ -1,6 +1,6 @@
-import SearchForm from "../../features/SearchForm";
+import SearchForm from "../SearchForm";
 import styled from "styled-components";
-import SelectTag from "../../features/SelectTag";
+import SelectTag from "../SelectTag";
 
 const FilterWrap = styled.div`
   display: flex;

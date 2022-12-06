@@ -1,4 +1,4 @@
-import {footerData} from '../../services/FooterData';
+import {footerData} from '../../data/FooterData';
 import styled from "styled-components";
 import Logo from "../Logo";
 import {NavItem, NavList} from "../FooterNav";
