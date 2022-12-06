@@ -6,7 +6,6 @@ const NotFoundContainer = styled.div`
   padding: 50px;
   text-align: center;
   
-  
   a {
     color: inherit;
   }
@@ -16,7 +15,7 @@ const NotFound = () => {
   return (
     <NotFoundContainer>
       <h1>Page not find</h1>
-      <Link to='/'>Go Home))</Link>
+      <Link to='/'>Go Home</Link>
     </NotFoundContainer>
   );
 };

@@ -11,7 +11,7 @@ const Container = styled.div`
 
 const PostPage = () => {
   const { postId } = useParams();
-  const post = potsData.filter(post => post.id === postId);
+  const post = potsData.filter(post => post.id == postId);
   const {title, text, image} = post[0];
 
   return (

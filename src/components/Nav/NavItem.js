@@ -31,7 +31,7 @@ const NavItem = ({children, url}) => {
   return (
     <NavListItem>
       <NavbarLink
-        activeClassName="active"
+        activeclassname="active"
         to={url}>{children}</NavbarLink>
     </NavListItem>
   );

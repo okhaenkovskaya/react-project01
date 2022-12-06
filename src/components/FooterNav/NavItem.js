@@ -29,7 +29,7 @@ const NavItem = ({children, url}) => {
   return (
     <FooterListItem>
       <NavbarLink
-        activeClassName="active"
+        activeclassname="active"
         to={url}>{children}</NavbarLink>
     </FooterListItem>
   );
