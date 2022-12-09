@@ -1,8 +1,6 @@
 import { ReactComponent as IconArrow } from '../../assets/icons/arrow.svg';
 import styled from "styled-components";
 import Button from "../Link";
-import View from "../View";
-import Comments from "../Comments";
 
 const Container = styled.div`
   font-size: 16px;
@@ -27,6 +25,7 @@ const Image = styled.div`
   
   img {
     height: 100%;
+    max-height: 400px;
     width: 100%;
     object-fit: cover;
   }
@@ -51,29 +50,26 @@ const Holder = styled.div`
 `;
 
 
-const FeaturedPost = ({featuredPostData}) => {
+const FeaturedPost = ({beer}) => {
 
-  const {id, title, text, image, comments, view} = featuredPostData;
+  const {id, name, description, image_url} = beer;
+
 
   return (
     <Container>
       <TextWrap>
-        <Title>{title}</Title>
-        <Text>{text}</Text>
+        <Title>{name}</Title>
+        <Text>{description}</Text>
         <Holder>
           <Button url={`/posts/${id}`}>
             Read more
             <IconArrow/>
           </Button>
 
-          <div>
-            <Comments>{comments}</Comments>
-            <View>{view}</View>
-          </div>
         </Holder>
       </TextWrap>
       <Image>
-        <img src={image.src} alt={image.alt} />
+        <img src={image_url} alt={name} />
       </Image>
     </Container>
   );

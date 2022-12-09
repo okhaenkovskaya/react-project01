@@ -2,6 +2,9 @@ import { useParams } from 'react-router-dom';
 import {potsData} from '../../data/HomeData';
 import styled from "styled-components";
 import FullWidthImage from "../../components/FullWidthImage";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import Loader from "../../components/Loader";
 
 const Container = styled.div`
     margin: 0 auto;
@@ -11,15 +14,34 @@ const Container = styled.div`
 
 const PostPage = () => {
   const { postId } = useParams();
-  const post = potsData.filter(post => post.id == postId);
-  const {title, text, image} = post[0];
+  const [beer, setBeer] = useState({});
+  const [newBeerLoading, setNewBeerLoading] = useState(true);
+
+  useEffect(() => {
+    onRequestbeer();
+  }, [])
+
+
+  const onRequestbeer = () => {
+    axios.get(`https://api.punkapi.com/v2/beers/${postId}`)
+    .then(res => {
+      const beerData = res.data;
+      setBeer(res.data[0]);
+      setNewBeerLoading(false)
+    })
+  }
+
+  const {name, description, image_url} = beer;
+
 
   return (
-    <Container>
-        <FullWidthImage fullImageData={image} />
-        <h1>{title}</h1>
-      {text}
-    </Container>
+    <>
+        {newBeerLoading ? <Loader /> : <Container>
+          <img src={image_url} alt={name} />
+            <h1>{name}</h1>
+            {description}
+        </Container>}
+    </>
   );
 };
 

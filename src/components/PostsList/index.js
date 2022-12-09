@@ -8,10 +8,9 @@ const PostsListContainer = styled.div`
 `;
 
 const PostsList = ({postsData}) => {
-
   return (
     <PostsListContainer>
-      {postsData.map(post => <Post key={post.id} post={post}/>)}
+      {postsData.map(post => (<Post key={post.id} post={post}/>))}
     </PostsListContainer>
   );
 };

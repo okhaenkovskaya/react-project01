@@ -4,6 +4,7 @@ import {ReactComponent as IconArrow} from "../../../assets/icons/arrow.svg";
 import Comments from "../../Comments";
 import View from "../../View";
 import styled from "styled-components";
+import FeaturedPost from "../../FeaturedPost";
 
 
 const Container = styled.div`
@@ -26,9 +27,10 @@ const Image = styled.div`
   margin: 0;
   
   img {
-    height: auto;
-    width: 100%;
+    height: 100px;
+    width: auto;
     object-fit: cover;
+    margin: 0 auto;
   }
 `;
 
@@ -52,32 +54,27 @@ const Holder = styled.div`
 
 
 const Post = ({post}) => {
-  const {id, title, text, image, comments, view} = post;
 
-  let slicedText = text;
-  if (text.length > 40) {
-    slicedText = text.slice(0,59);
+  const {id, name, description, image_url} = post;
+  let slicedText = description;
+  if (description.length > 40) {
+    slicedText = description.slice(0,39);
     slicedText += '...';
   }
 
   return (
     <Container>
       <Image>
-        <img src={image.src} alt={image.alt} />
+        <img src={image_url} alt={name} />
       </Image>
       <TextWrap>
-        <Title>{title}</Title>
+        <Title>{name}</Title>
         <Text>{slicedText}</Text>
         <Holder>
           <Button url={`/posts/${id}`}>
             Read more
             <IconArrow/>
           </Button>
-
-          <div>
-            <Comments>{comments}</Comments>
-            <View>{view}</View>
-          </div>
         </Holder>
       </TextWrap>
     </Container>
