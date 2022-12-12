@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom';
-import {potsData} from '../../data/HomeData';
 import styled from "styled-components";
-import FullWidthImage from "../../components/FullWidthImage";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Loader from "../../components/Loader";
@@ -32,7 +30,6 @@ const PostPage = () => {
   }
 
   const {name, description, image_url} = beer;
-
 
   return (
     <>

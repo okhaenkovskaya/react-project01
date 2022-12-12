@@ -1,12 +1,11 @@
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import styled from "styled-components";
+import {fullImageData} from '../../data/HomeData';
 import FullWidthImage from '../../components/FullWidthImage';
 import FeaturedPost from "../../components/FeaturedPost";
-import {fullImageData, potsData} from '../../data/HomeData';
 import PostsList from "../../components/PostsList";
 import FilterBar from "../../components/FilterBar";
-import Loader from '../../components/Loader';
 
 
 const Container = styled.div`
@@ -15,63 +14,27 @@ const Container = styled.div`
     padding: 0 30px;
 `;
 
-const Button = styled.button`
-    display: block;
-    background: #5458F7;
-    width: fit-content;
-    padding: 7px 35px;
-    margin: 0 auto;
-    border: 0;
-    border-radius: 40px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 12px;
-    line-height: 1.5;
-    font-weight: 600;
-    
-    &:hover {
-      opacity: 0.7;
-    }
-`;
 
 const HomePage = () => {
-
   const BASE_URL = 'https://api.punkapi.com/v2/beers';
-  const [beer, setBeer] = useState(null);
   const [beers, setBeers] = useState([]);
   const [page, setPage] = useState(1);
   const [isCompleted, setIsCompleted] = useState(false);
   const [newComicsLoading, setNewComicsLoading] = useState(false);
 
   useEffect(() => {
-    onRequestBeer();
+    onRequestBeers(page);
   }, [])
 
-  useEffect(() => {
-    onRequestBeers(1);
-  }, [])
-
-
-  const onRequestBeer = () => {
-    axios.get(`${BASE_URL}/random`)
-    .then(res => {
-      const beerData = res.data;
-      setBeer(beerData[0]);
-    })
-  }
-
-
-
-  const onRequestBeers = (page) => {
+  const onFilter = (filterObj) => {
     axios.get(BASE_URL, {
-      params: {page: page, per_page: 6}
+      params: filterObj
     })
     .then(res => {
-      setBeers( [...beers, ...res.data]);
-      setPage( (page) => page + 1);
-      setIsCompleted(res.data.length > 0)
+      setBeers( [...res.data]);
       setNewComicsLoading(false)
-
+      console.log(res.data)
+      {res.data.length <= 6 ? setIsCompleted(true) : setIsCompleted(false)}
     })
     .catch((error) => {
       console.log(error)
@@ -79,28 +42,54 @@ const HomePage = () => {
   }
 
 
+  const onSearchBeer = (searchParam='') => {
+    axios.get(BASE_URL, {
+      params: {page: 1, per_page: 6, beer_name: searchParam}
+    })
+    .then(res => {
+      setBeers( [...res.data]);
+      setNewComicsLoading(false)
+      {res.data.length <= 6 ? setIsCompleted(true) : setIsCompleted(false)}
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
+  const onRequestBeers = (page) => {
+    axios.get(BASE_URL, {
+      params: {page: page, per_page: 60}
+    })
+    .then(res => {
+      setBeers( [...beers, ...res.data]);
+      setPage( (page) => page + 1);
+      console.log(res.data)
+      setNewComicsLoading(false);
+
+      // Вот тут не срабатывает ((((
+      {res.data.length <= 6 ? setIsCompleted(true) : setIsCompleted(false)}
+
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
 
   return (
     <>
       <FullWidthImage fullImageData={fullImageData} />
 
       <Container>
+        <FilterBar onSearchBeer={onSearchBeer} onFilter={onFilter} />
 
-        <FilterBar potsData={potsData} />
+        {beers.length > 0 && <FeaturedPost beer={beers[0]} /> }
 
-        {beer ? <FeaturedPost beer={beer} /> : ''}
-
-        {beers.length > 0 ? <PostsList postsData={beers}/> : ''}
-
-        {newComicsLoading ? <Loader /> : ''}
-
-        {beers.length > 0 ? <Button
-          onClick={() => {
-            onRequestBeers(page);
-            setNewComicsLoading(true)
-          }}>
-          Load more
-        </Button> : ''}
+        {beers.length > 0 && <PostsList beers={beers}
+                                        page={page}
+                                        newComicsLoading={newComicsLoading}
+                                        isCompleted={isCompleted}
+                                        onRequestBeers={onRequestBeers}
+                                        setNewComicsLoading={setNewComicsLoading} /> }
       </Container>
     </>
   );

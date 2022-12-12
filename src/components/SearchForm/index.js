@@ -38,13 +38,18 @@ const FilterWrap = styled.div`
   }
 `;
 
-const SearchForm = () => {
+const SearchForm = ({onSearchBeer}) => {
+
+  const handleChange = (e) => {
+    onSearchBeer(e.target.value)
+  }
+
   return (
     <FilterWrap>
       <button type="button">
         <IconSearch/>
       </button>
-      <input type="text" placeholder="Search Article" />
+      <input type="text" placeholder="Search Beer" onChange={handleChange} />
     </FilterWrap>
   );
 };

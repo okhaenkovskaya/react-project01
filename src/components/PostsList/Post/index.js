@@ -1,11 +1,6 @@
-import React from 'react';
 import Button from "../../Link";
 import {ReactComponent as IconArrow} from "../../../assets/icons/arrow.svg";
-import Comments from "../../Comments";
-import View from "../../View";
 import styled from "styled-components";
-import FeaturedPost from "../../FeaturedPost";
-
 
 const Container = styled.div`
   font-size: 16px;
