@@ -41,7 +41,9 @@ const FilterWrap = styled.div`
 const SearchForm = ({onSearchBeer}) => {
 
   const handleChange = (e) => {
-    onSearchBeer(e.target.value)
+    if(e.target.value.length > 0) {
+      onSearchBeer(e.target.value)
+    }
   }
 
   return (

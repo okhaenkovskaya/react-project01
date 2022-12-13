@@ -23,7 +23,6 @@ const PostPage = () => {
   const onRequestbeer = () => {
     axios.get(`https://api.punkapi.com/v2/beers/${postId}`)
     .then(res => {
-      const beerData = res.data;
       setBeer(res.data[0]);
       setNewBeerLoading(false)
     })

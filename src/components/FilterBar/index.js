@@ -1,4 +1,5 @@
 import SearchForm from "../SearchForm";
+import SortSelects from "../SortSelects";
 import styled from "styled-components";
 
 const FilterWrap = styled.div`
@@ -13,16 +14,6 @@ const FilterWrap = styled.div`
   }
 `;
 
-const SortWrap = styled.div`
-  width: 40%;
-  display: flex;
-  flex-wrap: wrap;
-  
-  > div {
-    width: 40%;
-    margin:0 37px 0 0;
-  }
-`;
 
 const FilterBar = ({onSearchBeer, onFilter}) => {
 
@@ -50,23 +41,7 @@ const FilterBar = ({onSearchBeer, onFilter}) => {
 
   return (
     <FilterWrap>
-      <SortWrap  onChange={handleChange}>
-        <select data-name='hops'>
-          <option value="all">hops</option>
-          <option value="all">all hops</option>
-          <option value="Fuggles">Fuggles</option>
-          <option value="Nelson Sauvin">Nelson Sauvin</option>
-          <option value="Dana">Dana</option>
-        </select>
-
-        <select data-name='yeast'>
-          <option value="all">yeast</option>
-          <option value="all">all yeast</option>
-          <option value="Wyeast 3522 - Belgian Ardennes">Wyeast 3522 - Belgian Ardennes</option>
-          <option value="Wyeast 2126 - Bohemian Lager">Wyeast 2126 - Bohemian Lager</option>
-          <option value="Wyeast 3711 - French Saison">Wyeast 3711 - French Saison</option>
-        </select>
-      </SortWrap>
+      <SortSelects onFilter={onFilter} />
 
       <SearchForm onSearchBeer={onSearchBeer} />
     </FilterWrap>

@@ -6,6 +6,7 @@ import FullWidthImage from '../../components/FullWidthImage';
 import FeaturedPost from "../../components/FeaturedPost";
 import PostsList from "../../components/PostsList";
 import FilterBar from "../../components/FilterBar";
+import NotFound from "../../components/NotFound";
 
 
 const Container = styled.div`
@@ -34,7 +35,7 @@ const HomePage = () => {
       setBeers( [...res.data]);
       setNewComicsLoading(false)
       console.log(res.data)
-      {res.data.length <= 6 ? setIsCompleted(true) : setIsCompleted(false)}
+      res.data.length < 6 ? setIsCompleted(true) : setIsCompleted(false)
     })
     .catch((error) => {
       console.log(error)
@@ -49,7 +50,8 @@ const HomePage = () => {
     .then(res => {
       setBeers( [...res.data]);
       setNewComicsLoading(false)
-      {res.data.length <= 6 ? setIsCompleted(true) : setIsCompleted(false)}
+      console.log(res.data)
+      res.data.length < 6 ? setIsCompleted(true) : setIsCompleted(false)
     })
     .catch((error) => {
       console.log(error)
@@ -58,7 +60,7 @@ const HomePage = () => {
 
   const onRequestBeers = (page) => {
     axios.get(BASE_URL, {
-      params: {page: page, per_page: 60}
+      params: {page: page, per_page: 6}
     })
     .then(res => {
       setBeers( [...beers, ...res.data]);
@@ -66,8 +68,7 @@ const HomePage = () => {
       console.log(res.data)
       setNewComicsLoading(false);
 
-      // Вот тут не срабатывает ((((
-      {res.data.length <= 6 ? setIsCompleted(true) : setIsCompleted(false)}
+      res.data.length < 6 ? setIsCompleted(true) : setIsCompleted(false)
 
     })
     .catch((error) => {
@@ -81,6 +82,8 @@ const HomePage = () => {
 
       <Container>
         <FilterBar onSearchBeer={onSearchBeer} onFilter={onFilter} />
+
+        {beers.length == 0 && <NotFound /> }
 
         {beers.length > 0 && <FeaturedPost beer={beers[0]} /> }
 
