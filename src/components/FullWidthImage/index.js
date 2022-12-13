@@ -8,9 +8,7 @@ const Image = styled.img`
   margin: 0 0 30px;
 `;
 
-const FullWidthImage = ({fullImageData}) => {
-  const {alt, src} = fullImageData;
-
+const FullWidthImage = ({fullImageData: {alt, src}}) => {
   return (
     <Image src={src} alt={alt} />
   );

@@ -49,9 +49,8 @@ const Holder = styled.div`
 `;
 
 
-const Post = ({post}) => {
+const Post = ({post: {id, name, description, image_url}}) => {
 
-  const {id, name, description, image_url} = post;
   let slicedText = description;
   if (description.length > 40) {
     slicedText = description.slice(0,39);

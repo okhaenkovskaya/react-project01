@@ -51,10 +51,7 @@ const Holder = styled.div`
 `;
 
 
-const FeaturedPost = ({beer}) => {
-
-  const {id, name, description, image_url} = beer;
-
+const FeaturedPost = ({beer: {id, name, description, image_url}}) => {
 
   return (
     <Container>
