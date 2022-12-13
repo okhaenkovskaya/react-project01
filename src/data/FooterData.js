@@ -40,17 +40,17 @@ export const footerData = {
       {
         id: 1,
         name: "Item22",
-        link: "/about"
+        link: "/item"
       },
       {
         id: 2,
         name: "Item23",
-        link: "/contact"
+        link: "/policy"
       },
       {
         id: 3,
         name: "Item24",
-        link: "/faq"
+        link: "/info"
       }
     ]
   },
@@ -65,17 +65,17 @@ export const footerData = {
       {
         id: 1,
         name: "Item32",
-        link: "/about"
+        link: "/terms"
       },
       {
         id: 2,
         name: "Item33",
-        link: "/contact"
+        link: "/tabs"
       },
       {
         id: 3,
         name: "Item34",
-        link: "/faq"
+        link: "/figma"
       }
     ]
   },

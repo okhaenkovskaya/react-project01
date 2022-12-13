@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom';
-import styled from "styled-components";
 import {useEffect, useState} from "react";
+import styled from "styled-components";
 import axios from "axios";
 
 import Loader from "../../components/Loader";
+import PostComment from "../../components/PostComments";
 
 const Container = styled.div`
     margin: 0 auto;
@@ -59,6 +60,9 @@ const PostPage = () => {
           </Intro>
 
           {description}
+
+
+          <PostComment />
         </Container>
     </>
   );
