@@ -5,27 +5,22 @@ export const footerData = {
   infoTExt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   copyright: '©My-app 2022. All rights reserved',
   footerNavFirst: {
-    heading: "Top Category",
+    heading: "Top Hops",
     items: [
       {
         id: 0,
-        name: "Home",
-        link: "/"
+        name: "Fuggles",
+        link: "/archive/hops/fuggles"
       },
       {
         id: 1,
-        name: "Item12",
-        link: "/about"
+        name: "Nelson Sauvin",
+        link: "archive/hops/nelson-sauvin"
       },
       {
         id: 2,
-        name: "Item13",
-        link: "/contact"
-      },
-      {
-        id: 3,
-        name: "Item14",
-        link: "/faq"
+        name: "Dana",
+        link: "archive/hops/dana"
       }
     ]
   },

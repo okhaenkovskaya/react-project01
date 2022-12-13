@@ -20,29 +20,12 @@ const HomePage = () => {
   const [beers, setBeers] = useState([]);
   const [page, setPage] = useState(1);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [newComicsLoading, setNewComicsLoading] = useState(false);
+  const [newBeersLoading, setNewBeersLoading] = useState(false);
 
   useEffect(() => {
     onRequestBeers(page);
 
-    //getCharacters()
   }, [])
-
-  const getCharacters = () => {
-    axios.get('https://api.jikan.moe/v4/characters', {
-      params: {
-        page: 1,
-        limit: 15
-      }
-    })
-    .then(res => {
-      console.log(res.data, 'res.data.data')
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
-
 
   const onFilter = (filterObj) => {
     axios.get(BASE_URL, {
@@ -50,7 +33,7 @@ const HomePage = () => {
     })
     .then(res => {
       setBeers( [...res.data]);
-      setNewComicsLoading(false)
+      setNewBeersLoading(false)
       res.data.length < 6 ? setIsCompleted(true) : setIsCompleted(false)
     })
     .catch((error) => {
@@ -65,7 +48,7 @@ const HomePage = () => {
     })
     .then(res => {
       setBeers( [...res.data]);
-      setNewComicsLoading(false)
+      setNewBeersLoading(false)
       res.data.length < 6 ? setIsCompleted(true) : setIsCompleted(false)
     })
     .catch((error) => {
@@ -80,7 +63,7 @@ const HomePage = () => {
     .then(res => {
       setBeers( [...beers, ...res.data]);
       setPage( (page) => page + 1);
-      setNewComicsLoading(false);
+      setNewBeersLoading(false);
       res.data.length < 6 ? setIsCompleted(true) : setIsCompleted(false)
     })
     .catch((error) => {
@@ -101,10 +84,10 @@ const HomePage = () => {
 
         {beers.length > 0 && <PostsList beers={beers}
                                         page={page}
-                                        newComicsLoading={newComicsLoading}
+                                        newBeersLoading={newBeersLoading}
                                         isCompleted={isCompleted}
                                         onRequestBeers={onRequestBeers}
-                                        setNewComicsLoading={setNewComicsLoading} /> }
+                                        setNewBeersLoading={setNewBeersLoading} /> }
       </Container>
     </>
   );

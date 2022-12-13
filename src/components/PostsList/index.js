@@ -28,7 +28,7 @@ const Button = styled.button`
     }
 `;
 
-const PostsList = ({beers, newComicsLoading, page, onRequestBeers, setNewComicsLoading, isCompleted}) => {
+const PostsList = ({beers, newBeersLoading, page, onRequestBeers, setNewBeersLoading, isCompleted}) => {
 
   return (
     <>
@@ -36,12 +36,12 @@ const PostsList = ({beers, newComicsLoading, page, onRequestBeers, setNewComicsL
         {beers.map(post => (<Post key={post.id} post={post}/>))}
       </PostsListContainer>
 
-      {newComicsLoading && <Loader />}
+      {newBeersLoading && <Loader />}
 
       {beers.length > 0 && !isCompleted ? <Button
         onClick={() => {
           onRequestBeers(page);
-          setNewComicsLoading(true)
+          setNewBeersLoading(true)
         }}>
         Load more
       </Button> : '' }
