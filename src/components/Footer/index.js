@@ -1,7 +1,7 @@
 import {footerData} from '../../data/FooterData';
 import styled from "styled-components";
 import Logo from "../Logo";
-import {NavItem, NavList} from "../FooterNav";
+import {NavItem, NavList} from "../Nav";
 
 const FooterContainer = styled.footer`
   background: #1E1E1E;
@@ -64,22 +64,22 @@ const Footer = () => {
         <div className="footer__menu">
           <div className="footer__menu-wrap">
             <FooterHeading>{footerNavFirst.heading}</FooterHeading>
-            <NavList>
-              {footerNavFirst.items.map(item => <NavItem key={item.id} url={item.link}>{item.name}</NavItem>)}
+            <NavList direction='column'>
+              {footerNavFirst.items.map(item => <NavItem margin='0 0 5px' key={item.id} url={item.link}>{item.name}</NavItem>)}
             </NavList>
           </div>
 
           <div className="footer__menu-wrap">
             <FooterHeading>{footerNavSecond.heading}</FooterHeading>
-            <NavList>
-              {footerNavSecond.items.map(item => <NavItem key={item.id} url={item.link}>{item.name}</NavItem>)}
+            <NavList direction='column'>
+              {footerNavSecond.items.map(item => <NavItem margin='0 0 5px' key={item.id} url={item.link}>{item.name}</NavItem>)}
             </NavList>
           </div>
 
           <div className="footer__menu-wrap">
             <FooterHeading>{footerNavThird.heading}</FooterHeading>
-            <NavList>
-              {footerNavThird.items.map(item => <NavItem key={item.id} url={item.link}>{item.name}</NavItem>)}
+            <NavList direction='column'>
+              {footerNavThird.items.map(item => <NavItem margin='0 0 5px' key={item.id} url={item.link}>{item.name}</NavItem>)}
             </NavList>
           </div>
 

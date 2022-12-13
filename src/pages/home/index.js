@@ -8,13 +8,11 @@ import PostsList from "../../components/PostsList";
 import FilterBar from "../../components/FilterBar";
 import NotFound from "../../components/NotFound";
 
-
 const Container = styled.div`
     margin: 0 auto;
     max-width: 1250px;
     padding: 0 30px;
 `;
-
 
 const HomePage = () => {
   const BASE_URL = 'https://api.punkapi.com/v2/beers';
@@ -34,7 +32,6 @@ const HomePage = () => {
     .then(res => {
       setBeers( [...res.data]);
       setNewComicsLoading(false)
-      console.log(res.data)
       res.data.length < 6 ? setIsCompleted(true) : setIsCompleted(false)
     })
     .catch((error) => {
@@ -50,7 +47,6 @@ const HomePage = () => {
     .then(res => {
       setBeers( [...res.data]);
       setNewComicsLoading(false)
-      console.log(res.data)
       res.data.length < 6 ? setIsCompleted(true) : setIsCompleted(false)
     })
     .catch((error) => {
@@ -65,11 +61,8 @@ const HomePage = () => {
     .then(res => {
       setBeers( [...beers, ...res.data]);
       setPage( (page) => page + 1);
-      console.log(res.data)
       setNewComicsLoading(false);
-
       res.data.length < 6 ? setIsCompleted(true) : setIsCompleted(false)
-
     })
     .catch((error) => {
       console.log(error)
@@ -83,7 +76,7 @@ const HomePage = () => {
       <Container>
         <FilterBar onSearchBeer={onSearchBeer} onFilter={onFilter} />
 
-        {beers.length == 0 && <NotFound /> }
+        {beers.length === 0 && <NotFound /> }
 
         {beers.length > 0 && <FeaturedPost beer={beers[0]} /> }
 

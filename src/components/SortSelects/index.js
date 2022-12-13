@@ -33,7 +33,7 @@ const SortSelects = ({onFilter}) => {
     selects.forEach(select => {
       const filter = select.dataset.name;
       const value = select.options[select.selectedIndex].value;
-      if(value == 'all') return
+      if(value === 'all') return
       filterObj = {
         ...filterObj,
         [filter]: value

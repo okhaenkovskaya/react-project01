@@ -8,7 +8,6 @@ const FilterWrap = styled.div`
   justify-content: space-between;
   margin:0 0 48px;
   
-  
   select option:first-child {
     display:none;
   }
@@ -16,29 +15,6 @@ const FilterWrap = styled.div`
 
 
 const FilterBar = ({onSearchBeer, onFilter}) => {
-
-  const handleChange = (e) => {
-    const holder = e.target.closest('div');
-    const selects = holder.querySelectorAll('select');
-    let filterObj = {
-      page: 1,
-      per_page: 6,
-    };
-
-    selects.forEach(select => {
-      const filter = select.dataset.name;
-      const value = select.options[select.selectedIndex].value;
-      if(value == 'all') return
-      filterObj = {
-        ...filterObj,
-        [filter]: value
-      }
-    });
-
-    onFilter(filterObj)
-  }
-
-
   return (
     <FilterWrap>
       <SortSelects onFilter={onFilter} />

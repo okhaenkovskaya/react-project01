@@ -7,7 +7,6 @@ const ViewComponent = styled.div`
   line-height: 2;
   color: #fff;
   
-  
   svg {
       display: inline-block;
       vertical-align: top;
