@@ -1,5 +1,6 @@
-import { ReactComponent as IconComment } from '../../assets/icons/comment.svg';
 import styled from "styled-components";
+
+import { ReactComponent as IconComment } from '../../assets/icons/comment.svg';
 
 const CommentsComponent = styled.div`
   margin: 0 0 0 10px;

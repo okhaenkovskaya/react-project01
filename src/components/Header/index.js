@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Logo from "../Logo";
 import {headerData} from '../../data/HeaderData';
 import {NavItem, NavList} from "../Nav";

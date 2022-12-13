@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import axios from "axios";
+
 import Loader from "../../components/Loader";
 
 const Container = styled.div`

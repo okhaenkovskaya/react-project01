@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import styled from "styled-components";
+
 import {fullImageData} from '../../data/HomeData';
 import FullWidthImage from '../../components/FullWidthImage';
 import FeaturedPost from "../../components/FeaturedPost";
@@ -23,7 +24,25 @@ const HomePage = () => {
 
   useEffect(() => {
     onRequestBeers(page);
+
+    //getCharacters()
   }, [])
+
+  const getCharacters = () => {
+    axios.get('https://api.jikan.moe/v4/characters', {
+      params: {
+        page: 1,
+        limit: 15
+      }
+    })
+    .then(res => {
+      console.log(res.data, 'res.data.data')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
 
   const onFilter = (filterObj) => {
     axios.get(BASE_URL, {

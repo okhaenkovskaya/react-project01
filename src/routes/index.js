@@ -1,4 +1,5 @@
 import {Route, Routes} from "react-router-dom";
+
 import HomePage from "../pages/home";
 import PostPage from "../pages/post";
 import NotFound from "../pages/notFound";

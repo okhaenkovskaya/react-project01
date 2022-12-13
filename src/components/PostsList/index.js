@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import Post from "./Post";
 import Loader from "../Loader";
 

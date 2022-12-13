@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import Button from "../../components/Link";
 import {notFoundImageData} from "../../data/NotFoundData";
 

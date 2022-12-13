@@ -1,6 +1,7 @@
+import styled from "styled-components";
+
 import SearchForm from "../SearchForm";
 import SortSelects from "../SortSelects";
-import styled from "styled-components";
 
 const FilterWrap = styled.div`
   display: flex;

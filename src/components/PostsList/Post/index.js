@@ -1,6 +1,7 @@
 import Button from "../../Link";
-import {ReactComponent as IconArrow} from "../../../assets/icons/arrow.svg";
 import styled from "styled-components";
+
+import {ReactComponent as IconArrow} from "../../../assets/icons/arrow.svg";
 
 const Container = styled.div`
   font-size: 16px;

@@ -1,6 +1,7 @@
-import {footerData} from '../../data/FooterData';
 import styled from "styled-components";
+
 import Logo from "../Logo";
+import {footerData} from '../../data/FooterData';
 import {NavItem, NavList} from "../Nav";
 
 const FooterContainer = styled.footer`
