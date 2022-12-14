@@ -21,18 +21,15 @@ const ArchivePage = () => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [newBeersLoading, setNewBeersLoading] = useState(false);
 
-  console.log(param, '<-----param')
-  console.log(filter, '<-----filter')
-
   useEffect(() => {
     onLoadPage(1);
-  }, [param, filter])
+  }, [param])
 
   const onLoadPage = (page) => {
     axios.get(BASE_URL, {
       params: {
         page: page,
-        per_page: 3,
+        per_page: 30,
         [filter]: filterParamReady
       }
     })
@@ -40,7 +37,7 @@ const ArchivePage = () => {
       setBeers( [...res.data]);
       setPage( (page) => page + 1);
       setNewBeersLoading(false);
-      res.data.length < 3 ? setIsCompleted(true) : setIsCompleted(false)
+      res.data.length < 30 ? setIsCompleted(true) : setIsCompleted(false)
     })
     .catch((error) => {
       console.log(error)
@@ -51,7 +48,7 @@ const ArchivePage = () => {
     axios.get(BASE_URL, {
       params: {
         page: page,
-        per_page: 3,
+        per_page: 30,
         [filter]: filterParamReady
       }
     })
@@ -59,19 +56,17 @@ const ArchivePage = () => {
       setBeers( [...beers, ...res.data]);
       setPage( (page) => page + 1);
       setNewBeersLoading(false);
-      res.data.length < 3 ? setIsCompleted(true) : setIsCompleted(false)
+      res.data.length < 30 ? setIsCompleted(true) : setIsCompleted(false)
     })
     .catch((error) => {
       console.log(error)
     })
   }
 
-  console.log(beers, 'beers')
-
 
   return (
     <Container>
-      <PageHeader>Archive {filter}: {param}</PageHeader>
+      <PageHeader>Archive {filter}: {filterParamReady}</PageHeader>
       {beers.length > 0 && <PostsList beers={beers}
                                       page={page}
                                       newBeersLoading={newBeersLoading}

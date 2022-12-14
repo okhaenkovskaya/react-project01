@@ -25,27 +25,22 @@ export const footerData = {
     ]
   },
   footerNavSecond: {
-    heading: "Top Tag",
+    heading: "Top Yeast",
     items: [
       {
         id: 0,
-        name: "Home",
-        link: "/"
+        name: "Belgian Ardennes",
+        link: "archive/yeast/belgian-ardennes"
       },
       {
         id: 1,
-        name: "Item22",
-        link: "/item"
+        name: "Bohemian Lager",
+        link: "archive/yeast/bohemian-lager"
       },
       {
         id: 2,
-        name: "Item23",
-        link: "/policy"
-      },
-      {
-        id: 3,
-        name: "Item24",
-        link: "/info"
+        name: "French Saison",
+        link: "archive/yeast/french-saison"
       }
     ]
   },
