@@ -61,7 +61,6 @@ const PostPage = () => {
 
           {description}
 
-
           <PostComment />
         </Container>
     </>

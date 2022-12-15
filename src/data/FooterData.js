@@ -54,8 +54,8 @@ export const footerData = {
       },
       {
         id: 1,
-        name: "Item32",
-        link: "/terms"
+        name: "Contact",
+        link: "/contact"
       },
       {
         id: 2,

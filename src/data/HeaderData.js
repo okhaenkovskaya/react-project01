@@ -15,7 +15,7 @@ export const headerData = {
     },
     {
       id: 2,
-      name: "Item3",
+      name: "Contact",
       link: "/contact"
     },
     {

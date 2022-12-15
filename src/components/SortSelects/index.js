@@ -1,3 +1,4 @@
+import {useRef} from 'react';
 import styled from "styled-components";
 
 const SortWrap = styled.div`
@@ -21,10 +22,11 @@ const Select = styled.select`
 `;
 
 const SortSelects = ({onFilter}) => {
+  const mySelectWrap = useRef(null);
 
-  const handleChange = (e) => {
-    const holder = e.target.closest('div');
-    const selects = holder.querySelectorAll('select');
+  const handleChange = () => {
+    const selects = Array.from(mySelectWrap.current.children);
+
     let filterObj = {
       page: 1,
       per_page: 6,
@@ -43,17 +45,15 @@ const SortSelects = ({onFilter}) => {
     onFilter(filterObj)
   }
 
-
   return (
-      <SortWrap  onChange={handleChange}>
-        <Select data-name='hops'>
+      <SortWrap ref={mySelectWrap} onChange={handleChange}>
+        <Select  data-name='hops'>
           <option value="all">Hops</option>
           <option value="all">All hops</option>
           <option value="Fuggles">Fuggles</option>
           <option value="Nelson Sauvin">Nelson Sauvin</option>
           <option value="Dana">Dana</option>
         </Select>
-
         <Select data-name='yeast'>
           <option value="all">Yeast</option>
           <option value="all">All yeast</option>
