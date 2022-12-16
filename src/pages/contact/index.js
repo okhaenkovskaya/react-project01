@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-import {fullImageData, pageData} from "../../data/ContactData";
+import {fullImageData, pageData, socialNetworkData} from "../../data/ContactData";
 import FullWidthImageWithTitle from "../../components/FullWidthImageWithTitle";
 import ContactForm from "../../components/ContactForm";
+import SocialNetwork from "../../components/SocialNetwork";
 
 const Container = styled.div`
     max-width: 1168px;
@@ -18,6 +19,7 @@ const Contact = () => {
       <FullWidthImageWithTitle fullImageData={fullImageData} title={pageData.title} />
       <Container>
         <ContactForm />
+        <SocialNetwork socialNetworkData={socialNetworkData} />
       </Container>
     </>
   );

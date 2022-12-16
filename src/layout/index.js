@@ -1,18 +1,4 @@
-import {Outlet} from "react-router-dom";
+import PrivateLayout from "./PrivateLayout";
+import PublicLayout from "./PublicLayout";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
-const Layout = () => {
-  return (
-    <div>
-      <Header/>
-
-      <Outlet />
-
-      <Footer />
-    </div>
-  );
-};
-
-export default Layout;
+export {PrivateLayout, PublicLayout};
