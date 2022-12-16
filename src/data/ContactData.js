@@ -13,8 +13,6 @@ export const pageData = {
     title: "Contact"
 }
 
-console.log(IconTwitter)
-
 export const socialNetworkData = {
     title: 'follow me',
     items: [

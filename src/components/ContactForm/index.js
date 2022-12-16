@@ -36,7 +36,7 @@ const ContactForm = () => {
 
     const errorItems = children.filter(item => item.classList.contains('error'));
 
-    if(errorItems.length == 0) {
+    if(errorItems.length === 0) {
       buttonRef.current.disabled = false;
     } else {
       buttonRef.current.disabled = true;
@@ -56,9 +56,9 @@ const ContactForm = () => {
   const handleChange = (e) => {
     const {name, value} = e.target;
     if(name === 'email') {
-      {isValidEmail(value) ? e.target.classList.remove('error') : e.target.classList.add('error') }
+      isValidEmail(value) ? e.target.classList.remove('error') : e.target.classList.add('error');
     } else {
-      {isValidField(value) ? e.target.classList.remove('error') : e.target.classList.add('error') }
+      isValidField(value) ? e.target.classList.remove('error') : e.target.classList.add('error');
     }
     checkErrors();
 

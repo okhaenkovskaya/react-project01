@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import View from "../View";
 import Comments from "../Comments";
 import Like from "../Like";
 

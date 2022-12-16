@@ -10,8 +10,8 @@ export const headerData = {
     },
     {
       id: 1,
-      name: "Item2",
-      link: "/about"
+      name: "Dashboard",
+      link: "/dashboard"
     },
     {
       id: 2,

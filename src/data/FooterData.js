@@ -59,8 +59,8 @@ export const footerData = {
       },
       {
         id: 2,
-        name: "Item33",
-        link: "/tabs"
+        name: "Dashboard",
+        link: "/dashboard"
       },
       {
         id: 3,
