@@ -2,27 +2,22 @@ import styled from "styled-components";
 
 import {fullImageData, pageData} from "../../data/ContactData";
 import FullWidthImageWithTitle from "../../components/FullWidthImageWithTitle";
-
+import ContactForm from "../../components/ContactForm";
 
 const Container = styled.div`
-  margin:0 auto;
-
+    max-width: 1168px;
+    margin: 0 auto;
+    padding: 0 30px;
 `;
 
-const Title = styled.h1`
-  font-style: normal;
-  font-weight: 300;
-  font-size: 72px;
-  line-height: 90px;
-  color: #FFFFFF;
-`;
+
 
 const Contact = () => {
   return (
     <>
       <FullWidthImageWithTitle fullImageData={fullImageData} title={pageData.title} />
       <Container>
-        <Title>Contact</Title>
+        <ContactForm />
       </Container>
     </>
   );
