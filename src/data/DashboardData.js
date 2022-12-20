@@ -1,6 +1,6 @@
-import { ReactComponent as IconDashboard } from '../assets/icons/fa-twitter.svg';
-import { ReactComponent as IconPosts } from '../assets/icons/fa-twitter.svg';
-import { ReactComponent as IconTasks } from '../assets/icons/fa-twitter.svg';
+import { ReactComponent as IconDashboard } from '../assets/icons/dashboard.svg';
+import { ReactComponent as IconPosts } from '../assets/icons/posts.svg';
+import { ReactComponent as IconTasks } from '../assets/icons/tasks.svg';
 
 export const DashboardData = {
   navItems: [

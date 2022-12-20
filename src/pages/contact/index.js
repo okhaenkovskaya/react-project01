@@ -12,16 +12,15 @@ const Container = styled.div`
 `;
 
 
-
 const Contact = () => {
   return (
-    <>
+    <div>
       <FullWidthImageWithTitle fullImageData={fullImageData} title={pageData.title} />
       <Container>
         <ContactForm />
         <SocialNetwork socialNetworkData={socialNetworkData} />
       </Container>
-    </>
+    </div>
   );
 };
 

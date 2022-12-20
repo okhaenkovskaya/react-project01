@@ -24,13 +24,16 @@ const NavbarLink = styled(NavLink)`
 `;
 
 
-const NavItem = ({children, url, margin}) => {
+const NavItem = ({children, url, margin, svg}) => {
 
   return (
     <NavListItem margin={margin}>
       <NavbarLink
         activeclassname="active"
-        to={url}>{children}</NavbarLink>
+        to={url}>
+        {svg}
+        {children}
+      </NavbarLink>
     </NavListItem>
   );
 };
