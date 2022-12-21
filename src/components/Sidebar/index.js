@@ -5,8 +5,6 @@ import Avatar from "../Avatar";
 const Sidebar = () => {
   const {navItems} = DashboardData;
 
-console.log(navItems, 'navItems')
-
   return (
     <>
       <Avatar />

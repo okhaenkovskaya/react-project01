@@ -12,7 +12,6 @@ const Title = styled.h2`
     margin: 0 0 10px;
 `;
 
-
 const Dashboard = () => {
   return (
     <>

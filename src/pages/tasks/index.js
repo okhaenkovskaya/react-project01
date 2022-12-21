@@ -1,9 +1,18 @@
 import {useState} from "react";
+import styled from "styled-components";
 
 import {TasksData} from '../../data/TasksData';
 import DashboardTasks from "../../components/DashboardTasks";
 import DashboardTaskForm from "../../components/DashboardTasks/DashboardTaskForm";
 
+const Title = styled.h2`
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: -0.02em;
+    color: #C1C6DB;
+    margin:0 0 30px;
+`;
 
 const Tasks = () => {
 
@@ -22,7 +31,8 @@ const Tasks = () => {
 
   return (
     <div>
-      Tasks
+      <Title>Tasks</Title>
+
       <DashboardTasks tasks={tasks}
                       editTask={editTask}
                       setEditTask={setEditTask}

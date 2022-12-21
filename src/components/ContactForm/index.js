@@ -76,9 +76,15 @@ const Button = styled.button`
     border: 0;
     display:block;
     width: 233px;
+    
+    &:disabled {
+      opacity: 0.2;
+    }
 `;
 
 const ContactForm = () => {
+  const [isValid, setIsValid] = useState(false);
+
   const formRef = useRef(null);
   const buttonRef = useRef(null);
 
@@ -92,6 +98,10 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if(isValid) {
+      buttonRef.current.style.backgroundColor = "pink";
+    }
   }
 
   const checkErrors = () => {
@@ -99,6 +109,7 @@ const ContactForm = () => {
     const errorItems = children.filter(item => item.classList.contains('error'));
 
     errorItems.length === 0 ? buttonRef.current.disabled = false : buttonRef.current.disabled = true;
+    errorItems.length === 0 ? setIsValid(true) : setIsValid(false);
   }
 
   const isValidField = (value) => {
@@ -127,6 +138,7 @@ const ContactForm = () => {
       <Title>Contact Form</Title>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <Input onChange={handleChange}
+               required
                name="firstName"
                type="text"
                placeholder="First Name"
@@ -137,11 +149,13 @@ const ContactForm = () => {
                placeholder="Last Name"
                value={data.lastName} />
         <Input onChange={handleChange}
+               required
                name="email"
                type="email"
                placeholder="Email"
                value={data.email} />
         <Input onChange={handleChange}
+               required
                name="phone"
                type="tel"
                placeholder="Phone"

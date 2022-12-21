@@ -22,7 +22,7 @@ const Router = () => {
         <Route exact path="*" element={<NotFound/>}/>
       </Route>
       <Route element={<PrivateLayout />}>
-        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact strict path="/dashboard" element={<Dashboard />} />
         <Route exact path="/dashboard/tasks" element={<Tasks />} />
         <Route exact path="/dashboard/posts" element={<Posts />} />
       </Route>

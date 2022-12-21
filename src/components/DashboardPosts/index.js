@@ -1,9 +1,6 @@
 import DashboardPost from "./DashboardPost";
 
-
 const DashboardPosts = ({posts, setPosts, setEditPostData, setShowEditPopup}) => {
-
-
   return (
     <div>
       {posts.map((item) => <DashboardPost key={item.id}
@@ -12,7 +9,6 @@ const DashboardPosts = ({posts, setPosts, setEditPostData, setShowEditPopup}) =>
                                           setShowEditPopup={setShowEditPopup}
                                           setEditPostData={setEditPostData}
                                           setPosts={setPosts} />)}
-
     </div>
   );
 };
