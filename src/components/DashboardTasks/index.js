@@ -1,8 +1,15 @@
 import DashboardTask from "./DashboardTask";
+import styled from "styled-components";
+
+const Tasks = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+`;
 
 const DashboardTasks = ({tasks, setTasks, setEditTask, editTask}) => {
   return (
-    <div>
+    <Tasks>
       {tasks.map(item => <DashboardTask key={item.id}
                                         item={item}
                                         tasks={tasks}
@@ -10,7 +17,7 @@ const DashboardTasks = ({tasks, setTasks, setEditTask, editTask}) => {
                                         editTask={editTask}
                                         setTasks={setTasks}
                           /> )}
-    </div>
+    </Tasks>
   );
 };
 

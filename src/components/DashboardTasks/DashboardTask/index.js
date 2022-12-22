@@ -4,14 +4,15 @@ import styled from "styled-components";
 import { ReactComponent as IconStar } from '../../../assets/icons/icon-star.svg';
 import { ReactComponent as IconStarRed } from '../../../assets/icons/icon-star-red.svg';
 import { ReactComponent as IconPin } from '../../../assets/icons/icon-pin.svg';
-import { ReactComponent as IconPinRed } from '../../../assets/icons/icon-pin-red.svg';
 import { ReactComponent as IconPencil } from '../../../assets/icons/icon-pencil.svg';
 import { ReactComponent as IconDelete } from '../../../assets/icons/plus_circle_icon.svg';
 
 
 const Task = styled.div`
-    background: ${props => props.completed ? "white" : "red"};
-    border: 1px solid #E6E7E9;
+    background: white;
+    ${props => props.isCompleted && "background: #FFFBE8; order: -1"};
+    ${props => props.isPinned && "background: #C1C1C1;  order: -99"};
+  
     border-radius: 8px;
     padding: 15px;
     margin: 0 0 15px;
@@ -103,7 +104,7 @@ const DashboardTask = ({item: {id, title, completed, pinned}, setTasks , tasks, 
   }
 
   return (
-    <Task completed>
+    <Task isCompleted={completed} isPinned={pinned}>
       <IconButton name='completed' type='button' onClick={(e) => toggleValue(e,id)}>
         {completed ? <IconStarRed /> : <IconStar />}
       </IconButton>
@@ -114,7 +115,7 @@ const DashboardTask = ({item: {id, title, completed, pinned}, setTasks , tasks, 
                        onChange={updateTask} /> : <Title>{title}</Title>}
 
       <IconButton name='pinned' type='button' onClick={(e) => toggleValue(e,id)}>
-        {pinned ? <IconPinRed /> : <IconPin />}
+        <IconPin />
       </IconButton>
 
       <IconButton type='button' onClick={() => setIsEdit(!isEdit)}>

@@ -1,5 +1,5 @@
-import React from 'react';
 import styled from "styled-components";
+import {useState} from "react";
 
 const Head = styled.div`
     display: flex;
@@ -21,9 +21,22 @@ const Head = styled.div`
     }
 `;
 
-const DashboardPostsHead = () => {
+const DashboardPostsHead = ({setCheckedPosts, checkedPosts, posts , setIsCheckedAllPosts, isCheckedAllPosts}) => {
+
+  const selectAllPosts = () => {
+    setIsCheckedAllPosts(isCheckedAllPosts => !isCheckedAllPosts)
+    const updatedCheckedPostsArray = posts.map((item, i) => posts[i].id)
+    setCheckedPosts(updatedCheckedPostsArray)
+
+    if(isCheckedAllPosts) {
+      setCheckedPosts([])
+    }
+  }
+
+
   return (
     <Head>
+      <input onClick={selectAllPosts} type="checkbox" />
       <strong>Post</strong>
       <strong>Status</strong>
       <strong>Date</strong>

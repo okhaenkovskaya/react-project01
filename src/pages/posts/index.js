@@ -50,6 +50,9 @@ const AddNewButton = styled.button`
 const Posts = () => {
   const [posts, setPosts] = useState(PostsData);
   const [postId, setPostId] = useState(posts.length);
+  const [isCheckedAllPosts, setIsCheckedAllPosts] = useState(false);
+  const [checkedPosts, setCheckedPosts] = useState([]);
+
 
   const emptyPost = {
     id: postId,
@@ -75,6 +78,7 @@ const Posts = () => {
   const [editPostData, setEditPostData] = useState(editedPost);
 
 
+  console.log(checkedPosts, 'checkedPosts111')
 
   return (
     <div>
@@ -89,9 +93,16 @@ const Posts = () => {
         </AddNewButton>
       </Head>
 
-      { posts.length > 0 && <DashboardPostsHead /> }
+      {posts.length > 0 && <DashboardPostsHead checkedPosts={checkedPosts}
+                                               setIsCheckedAllPosts={setIsCheckedAllPosts}
+                                               isCheckedAllPosts={isCheckedAllPosts}
+                                               posts={posts}
+                                               setCheckedPosts={setCheckedPosts}/>
+      }
 
       { posts.length > 0 && <DashboardPosts posts={posts}
+                                            checkedPosts={checkedPosts}
+                                            setCheckedPosts={setCheckedPosts}
                                             setEditPostData={setEditPostData}
                                             setShowEditPopup={setShowEditPopup}
                                             setPosts={setPosts} /> }

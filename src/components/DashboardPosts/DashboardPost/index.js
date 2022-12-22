@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import {useState} from "react";
-
-import {PostsData} from "../../../data/PostsData";
+import {useState, useEffect} from "react";
 
 const Post = styled.div`
     display: flex;
@@ -93,14 +91,40 @@ const Button = styled.button`
 `;
 
 
-const DashboardPost = ({item, setPosts, posts , setEditPostData, setShowEditPopup, editedPost}) => {
+const DashboardPost = ({item, setPosts, posts , setEditPostData, setShowEditPopup, editedPost, checkedPosts, setCheckedPosts}) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+
+  const [isCheck, setIsCheck] = useState(false);
+
+
+
+
+  console.log(isCheck, '<-----isCheck')
+
+/*  useEffect(() => {
+
+    console.log(checkedPosts.includes(item.id), 'checkedPosts.includes(item.id)')
+    if(checkedPosts.includes(item.id)) {
+      setIsCheck(true)
+    } else {
+      setIsCheck(false)
+    }
+    console.log(isCheck, '<-----isCheck')
+  }, [checkedPosts]);*/
+
+
 
   const deletePost = (id) => {
     setPosts(posts.filter(item => item.id !== id))
     setIsPopupOpen(false)
   }
 
+  const handleClick = (e, id) => {
+  //  e.preventDefault()
+    setIsCheck(e.target.checked)
+    setCheckedPosts(checkedPosts.filter(item => item !== id));
+  };
 
   const editPost = (item) => {
     editedPost = {
@@ -117,10 +141,10 @@ const DashboardPost = ({item, setPosts, posts , setEditPostData, setShowEditPopu
     setIsPopupOpen(false)
   }
 
-
-
   return (
     <Post>
+        <input onClick={(e) => handleClick(e, item.id)} defaultChecked={isCheck} type="checkbox" />
+
         <strong>{item.title}</strong>
         <strong>
           <span  className={(item.status).toLowerCase() }>{item.status}</span>
@@ -141,8 +165,6 @@ const DashboardPost = ({item, setPosts, posts , setEditPostData, setShowEditPopu
 
           </ButtonWrap>
         </strong>
-
-
     </Post>
   );
 };
