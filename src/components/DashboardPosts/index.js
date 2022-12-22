@@ -11,6 +11,7 @@ const DashboardPosts = ({posts, setPosts, setEditPostData, setShowEditPopup, che
                                           checkedPosts={checkedPosts}
                                           setShowEditPopup={setShowEditPopup}
                                           setEditPostData={setEditPostData}
+                                          isCheck={checkedPosts.includes(item.id)}
                                           setPosts={setPosts} />)}
     </div>
   );

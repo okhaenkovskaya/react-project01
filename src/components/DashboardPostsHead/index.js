@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {useState} from "react";
 
 const Head = styled.div`
     display: flex;
@@ -19,6 +18,23 @@ const Head = styled.div`
       width: 25%;
       padding: 15px 20px;
     }
+    
+     input {
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    -o-appearance:none;
+    width: 25px;
+    height: 25px;
+
+    }
+    
+    .text-true {
+      border: 2px solid red;
+    }
+    
+    .text-false {
+      border: 2px solid green;
+    }
 `;
 
 const DashboardPostsHead = ({setCheckedPosts, checkedPosts, posts , setIsCheckedAllPosts, isCheckedAllPosts}) => {
@@ -33,10 +49,11 @@ const DashboardPostsHead = ({setCheckedPosts, checkedPosts, posts , setIsChecked
     }
   }
 
+  console.log(checkedPosts, 'checkedPosts')
 
   return (
     <Head>
-      <input onClick={selectAllPosts} type="checkbox" />
+      <input onClick={selectAllPosts} className={`text-${isCheckedAllPosts}`} type="checkbox" />
       <strong>Post</strong>
       <strong>Status</strong>
       <strong>Date</strong>

@@ -43,6 +43,24 @@ const Post = styled.div`
         color: #2AABBC;
       }
     }
+    
+    
+    input {
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    -o-appearance:none;
+    width: 25px;
+    height: 25px;
+
+    }
+    
+    .text-true {
+      border: 2px solid red;
+    }
+    
+    .text-false {
+      border: 2px solid green;
+    }
 `;
 
 const ButtonWrap = styled.div`
@@ -91,29 +109,8 @@ const Button = styled.button`
 `;
 
 
-const DashboardPost = ({item, setPosts, posts , setEditPostData, setShowEditPopup, editedPost, checkedPosts, setCheckedPosts}) => {
+const DashboardPost = ({item, setPosts, posts , setEditPostData, setShowEditPopup, editedPost, checkedPosts, setCheckedPosts , isCheck}) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-
-  const [isCheck, setIsCheck] = useState(false);
-
-
-
-
-  console.log(isCheck, '<-----isCheck')
-
-/*  useEffect(() => {
-
-    console.log(checkedPosts.includes(item.id), 'checkedPosts.includes(item.id)')
-    if(checkedPosts.includes(item.id)) {
-      setIsCheck(true)
-    } else {
-      setIsCheck(false)
-    }
-    console.log(isCheck, '<-----isCheck')
-  }, [checkedPosts]);*/
-
-
 
   const deletePost = (id) => {
     setPosts(posts.filter(item => item.id !== id))
@@ -121,8 +118,6 @@ const DashboardPost = ({item, setPosts, posts , setEditPostData, setShowEditPopu
   }
 
   const handleClick = (e, id) => {
-  //  e.preventDefault()
-    setIsCheck(e.target.checked)
     setCheckedPosts(checkedPosts.filter(item => item !== id));
   };
 
@@ -143,7 +138,11 @@ const DashboardPost = ({item, setPosts, posts , setEditPostData, setShowEditPopu
 
   return (
     <Post>
-        <input onClick={(e) => handleClick(e, item.id)} defaultChecked={isCheck} type="checkbox" />
+        <input onClick={(e) => handleClick(e, item.id)}
+                defaultChecked={isCheck}
+                className={`text-${isCheck}`}
+                type="checkbox" />
+
 
         <strong>{item.title}</strong>
         <strong>

@@ -77,8 +77,18 @@ const Posts = () => {
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [editPostData, setEditPostData] = useState(editedPost);
 
+  const deletePosts = () => {
 
-  console.log(checkedPosts, 'checkedPosts111')
+    const filteredPosts = posts.filter(item => {
+      return  !(checkedPosts.includes(item.id))
+    })
+
+    setPosts(filteredPosts)
+    setIsCheckedAllPosts(false)
+    setCheckedPosts([])
+  }
+
+
 
   return (
     <div>
@@ -91,6 +101,12 @@ const Posts = () => {
                 type="button">
           <IconNewPosts />
         </AddNewButton>
+
+
+        {checkedPosts.length > 0 && <button onClick={deletePosts}
+                      type="button">
+         Remove Items
+        </button> }
       </Head>
 
       {posts.length > 0 && <DashboardPostsHead checkedPosts={checkedPosts}
